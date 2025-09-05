@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Guilherme Wesselka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 3rem;
+    }
+
+    .popup-link {
+      background: #1e90ff;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .popup-link:hover {
+      background: #ff6347;
+    }
+
+    /* Estilo do popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: black;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+      z-index: 10;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #cc0000;
+    }
+
+    /* Fundo escuro ao abrir popup */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portfólio de Guilherme Wesselka</h1>
+    <p>Estudante de programação com foco em JavaScript e C#</p>
+  </header>
+
+  <section class="skills">
+    <div class="popup-link" onclick="openPopup('js-popup')">Habilidades em JavaScript</div>
+    <div class="popup-link" onclick="openPopup('csharp-popup')">Habilidades em C#</div>
+  </section>
+
+  <!-- Popups -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="popup" id="js-popup">
+    <h2>JavaScript</h2>
+    <p>Tenho conhecimentos iniciais em JavaScript, incluindo manipulação do DOM, eventos e lógica de programação.</p>
+    <button class="close-btn" onclick="closePopup()">Fechar</button>
+  </div>
+
+  <div class="popup" id="csharp-popup">
+    <h2>C#</h2>
+    <p>Conhecimentos básicos em C#, estrutura de programas, sintaxe e primeiros passos no desenvolvimento de aplicações.</p>
+    <button class="close-btn" onclick="closePopup()">Fechar</button>
+  </div>
+
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
